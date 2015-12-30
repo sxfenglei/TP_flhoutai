@@ -35,7 +35,7 @@ class AuthController extends BaseController {
 		}
 
     	if(false !== $this->commonAdd('AuthRuleClassify',$data)){
-    		$this->success('添加成功',U('Auth/classifyList'));
+    		$this->success('添加成功',U('Auth/classifyList',array('tag'=>'auth')));
     	}else{
 			$this->error('添加失败');    		
     	}
@@ -67,7 +67,7 @@ class AuthController extends BaseController {
     	}
 
     	if(false !== $this->commonSave($map,'AuthRuleClassify',$data)){
-    		$this->success('修改成功',U('Auth/classifyList'));
+    		$this->success('修改成功',U('Auth/classifyList',array('tag'=>'auth')));
     	}else{
 			$this->error('修改失败');    		
     	}
@@ -125,7 +125,7 @@ class AuthController extends BaseController {
 		}
 
     	if(false !== $this->commonAdd('AuthRule',$data)){
-    		$this->success('添加成功',U('Auth/accessList'));
+    		$this->success('添加成功',U('Auth/accessList',array('tag'=>'auth')));
     	}else{
 			$this->error('添加失败');    		
     	}
@@ -171,7 +171,7 @@ class AuthController extends BaseController {
     	}
 
     	if(false !== $this->commonSave($map,'AuthRule',$data)){
-    		$this->success('修改成功',U('Auth/accessList'));
+    		$this->success('修改成功',U('Auth/accessList',array('tag'=>'auth')));
     	}else{
 			$this->error('修改失败');    		
     	}
@@ -218,7 +218,7 @@ class AuthController extends BaseController {
 		}
 
     	if(false !== $this->commonAdd('AuthGroup',$data)){
-    		$this->success('添加成功',U('Auth/ruleList'));
+    		$this->success('添加成功',U('Auth/ruleList',array('tag'=>'auth')));
     	}else{
 			$this->error('添加失败');    		
     	}
@@ -254,7 +254,7 @@ class AuthController extends BaseController {
     	}
 
     	if(false !== $this->commonSave($map,'AuthGroup',$data)){
-    		$this->success('修改成功',U('Auth/ruleList'));
+    		$this->success('修改成功',U('Auth/ruleList',array('tag'=>'auth')));
     	}else{
 			$this->error('修改失败');    		
     	}
@@ -344,7 +344,7 @@ class AuthController extends BaseController {
 		$data['rules_str'] = rtrim($strTmp,","); 
 
     	if(false !== $this->commonSave($map,'AuthGroup',$data)){
-    		$this->success('修改成功',U('Auth/ruleList'));
+    		$this->success('修改成功',U('Auth/ruleList',array('tag'=>'auth')));
     	}else{
 			$this->error('修改失败');    		
     	}

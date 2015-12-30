@@ -1,0 +1,1 @@
+<?php $email = array('status'=>'0','smtp'=>'smtp.sina.com','defaultEmail'=>'sxfenglei@sina.com','defaultPwd'=>'123456','defaultPort'=>'25','receiveEmail'=>'442165035@qq.com',); ?>

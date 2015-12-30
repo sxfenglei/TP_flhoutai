@@ -1,5 +1,7 @@
 <?php
-return array(
+include CONF_PATH.'webinfo.php';
+include CONF_PATH.'email.php';
+$conf = array(
 	//'配置项'=>'配置值'
 	//显示调试信息
 	'SHOW_PAGE_TRACE'=>true,
@@ -34,3 +36,12 @@ return array(
     //指定拥有全部权限的超级管理员id.可以设置多个值,如array('1','2','3'),
     'ADMINISTRATOR'=>array('1'),
 );
+
+if(is_array($webinfo) && count($webinfo)>0){
+	$conf = array_merge($conf, array('WEBINFO'=>$webinfo));
+}
+if(is_array($email) && count($email)>0){
+	$conf = array_merge($conf, array('EMAIL'=>$email));
+}
+
+return $conf;

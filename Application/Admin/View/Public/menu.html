@@ -4,7 +4,7 @@
 <div class="accordion-group">
  <!--  <div class="accordion-heading btn btn-info">
     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-      <i class="icon-group"></i> 系统用户管理 <i class="glyphicon glyphicon-chevron-down"></i>
+      <i class="icon-group"></i> 系统用户管理 </i>
     </a>
   </div> -->
     <div id="collapseZoom" class="accordion-body collapse in">
@@ -19,7 +19,7 @@
   <div class="accordion-group">
     <div class="accordion-heading btn btn-info">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-        <i class="glyphicon glyphicon-lock"></i> 权限管理 <i class="glyphicon glyphicon-chevron-down"></i>
+        <i class="glyphicon glyphicon-lock"></i><span>权限管理</span></i>
       </a>
     </div>
 
@@ -62,7 +62,7 @@
   <div class="accordion-group">
     <div class="accordion-heading btn btn-info">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        <i class="icon-group"></i> 系统用户管理 <i class="glyphicon glyphicon-chevron-down"></i>
+        <i class="icon-group"></i><span>系统用户管理</span></i>
       </a>
     </div>
     <if condition="$Think.get.tag eq admin">
@@ -83,5 +83,32 @@
     </div>
   </div><!-- end accordion-group -->
 </if><!-- end 系统用户管理菜单 -->
+
+<!-- 系统设置 -->
+<if condition="authCheck('Admin/System/setbaseinfo,Admin/System/setbaseinfoUpdate,Admin/System/setemail,Admin/System/setemailUpdate',session('ADMIN_UID'))">
+  <div class="accordion-group">
+    <div class="accordion-heading btn btn-info">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThr">
+        <i class="icon-cog"></i><span>系统配置</span></i>
+      </a>
+    </div>
+    <if condition="$Think.get.tag eq system">
+      <div id="collapseThr" class="accordion-body collapse in">
+    <else />
+      <div id="collapseThr" class="accordion-body collapse">
+    </if> 
+    <if condition="authCheck('Admin/System/setbaseinfo',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Admin/System/setbaseinfo',array('tag'=>'system'))}"><i class="icon-laptop"></i> 基本设置</a>
+      </div>
+      </if>
+      <if condition="authCheck('Admin/System/setemail',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Admin/System/setemail',array('tag'=>'system'))}"><i class="icon-envelope-alt"></i> 邮件设置</a>
+      </div>
+      </if>
+    </div>
+  </div><!-- end accordion-group -->
+</if><!-- end 系统设置 -->
 
 </div><!-- end accordion -->

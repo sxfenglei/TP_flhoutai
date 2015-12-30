@@ -21,8 +21,9 @@ class BaseController extends Controller {
 				$this->error('你没有权限!');
 			}
 		}
-
-
+		//读取网站基本配置信息
+		session('WEBINFO',C('WEBINFO'));
+		session('EMAIL',C('EMAIL')); 
 	}
 	/**
 	 * 公共分页列表数据方法

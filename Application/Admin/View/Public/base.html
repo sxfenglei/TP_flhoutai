@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="renderer" content="webkit">  
 	  	<meta content="sxfenglei" name="author" />
-		<block name="keywords"><meta name="keywords" content="sxfenglei" /></block>
-		<block name="description"><meta name="description" content="sxfenglei" /></block>
+		<block name="keywords"><meta name="keywords" content="{$Think.session.WEBINFO.keyword}" /></block>
+		<block name="description"><meta name="description" content="{$Think.session.WEBINFO.desc}" /></block>
   		<link rel="shortcut icon" href="__PUBLIC__/img/logo16X16.ico" />	
 		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/bootstrap-theme.min.css" />
@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="__PUBLIC__/css/default.css" />
 		<link rel="stylesheet" href="__PUBLIC__/css/flupload.css" />
 		<block name="subcss"></block>
-		<block name="title"><title>后台管理系统</title></block>
+		<block name="title"><title>{$Think.session.WEBINFO.title}</title></block>
 	</head>
 <body>
 <!--  顶端菜单 --> 
@@ -41,7 +41,7 @@
 	<!-- 末尾 --> 
 	<div class="row"> 
 		<block name="footer">
-			<p class="footer">@技术支持 <a href="http://www.sxfenglei.com">sxfenglei</a></p>
+			<p class="footer">{$Think.session.WEBINFO.footerinfo}</p>
 		</block>
 	</div>
 </div>
@@ -53,6 +53,10 @@
 <block name="subscript">
 <script>
 $(function(){
+	//菜单
+	$('.accordion-heading').on('click',function(){
+		console.log($(this).attr('class'));
+	});
 	//编辑
 	$('.btnEdit').on('click',function(){
 		window.location.href = $(this).data('url');

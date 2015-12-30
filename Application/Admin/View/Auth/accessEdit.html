@@ -23,7 +23,7 @@
 			<label for="name" class="col-sm-2 control-label">权限类别 </label>
 			<div class="col-sm-6">
 				<select class="form-control" name="classify">
-					<option value="{$vo.classify}">{$vo.classify|getField=###,name,AuthRuleClassify}</option>
+					<option value="{$res.classify}">{$res.classify|getField=###,name,AuthRuleClassify}</option>
 					<volist name="classifyList" id="vo">
 						<option value="{$vo.id}">{$vo.name}</option>
 					</volist>

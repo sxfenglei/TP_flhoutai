@@ -52,10 +52,10 @@
 					<td class="btnTd">
 						<div class="btn-group" role="group">
 							<if condition="authCheck('Admin/Auth/accessEdit',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/accessEdit',array('id'=>$vo['id']))}" class="btn btn-primary btn-sm btnEdit">修改</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/accessEdit',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-primary btn-sm btnEdit">修改</button>
 							</if>
 							<if condition="authCheck('Admin/Auth/accessDel',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/accessDel',array('id'=>$vo['id']))}" class="btn btn-danger btn-sm btnDel">删除</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/accessDel',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-danger btn-sm btnDel">删除</button>
 							</if>
 						</div>
 					</td>

@@ -51,16 +51,16 @@
 					<td class="btnTd" style="width:18rem">
 						<div class="btn-group" role="group">
 							<if condition="authCheck('Admin/Auth/ruleAllot',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleAllot',array('id'=>$vo['id']))}" class="btn btn-primary btn-xs btnEdit">分配权限</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleAllot',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-primary btn-xs btnEdit">分配权限</button>
 							</if>
 							<if condition="authCheck('Admin/Auth/ruleEdit',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleEdit',array('id'=>$vo['id']))}" class="btn btn-info btn-xs btnEdit">修改</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleEdit',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-info btn-xs btnEdit">修改</button>
 							</if>
 							<if condition="authCheck('Admin/Auth/ruleUser',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleUser',array('id'=>$vo['id']))}" class="btn btn-success btn-xs btnEdit">角色用户</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleUser',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-success btn-xs btnEdit">角色用户</button>
 							</if>
 							<if condition="authCheck('Admin/Auth/ruleDel',session('ADMIN_UID'))">
-							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleDel',array('id'=>$vo['id']))}" class="btn btn-danger btn-xs btnDel">删除</button>
+							<button type="button" data-id="{$vo.id}" data-url="{:U('Auth/ruleDel',array('id'=>$vo['id'],'tag'=>'auth'))}" class="btn btn-danger btn-xs btnDel">删除</button>
 							</if>
 						</div>
 					</td>

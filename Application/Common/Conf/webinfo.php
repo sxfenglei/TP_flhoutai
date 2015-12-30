@@ -1,0 +1,1 @@
+<?php $webinfo = array('title'=>'FL后台管理系统','keyword'=>'sxfenglei,碎碎冯同学','desc'=>'sxfenglei,碎碎冯同学','footerinfo'=>'@技术支持 <a href="http://www.sxfenglei.com">sxfenglei</a>','tel'=>'029-88888888','email'=>'442165035@qq.com',); ?>
