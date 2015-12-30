@@ -1,7 +1,9 @@
 ﻿## 简介
 
-这是一个基于TP和bootstrap3写的带用户权限的后台系统，利用自己的闲暇时间慢慢完成一个通用的后台管理系统。
-
+这是一个基于THINKPHP3.2.3和bootstrap3写的带用户权限的后台系统，利用自己的闲暇时间慢慢完成一个通用的后台管理系统。
+使用到的框架：
+THINKPHP3.2.3 http://www.thinkphp.cn/
+bootstrap3 http://getbootstrap.com/
 ## 使用
 *  开发环境，window10 APACHE2.2+ PHP 5.3+ MYSQL5.5+ sublime3
 *  1、创建数据库fl_houtai
