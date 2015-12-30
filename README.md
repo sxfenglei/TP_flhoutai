@@ -10,7 +10,7 @@ bootstrap3 http://getbootstrap.com/
 *  2、导入Doc/fl_houtai.sql
 *  3、开启web服务器的rewrite_module
 *  4、访问http://localhost/flhoutai/Admin
-*  5、管理员 admin admin
+*  5、管理员 admin 123456
 *  
 
 ## 版本开发进行中
