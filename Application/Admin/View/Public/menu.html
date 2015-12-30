@@ -1,0 +1,87 @@
+<div class="accordion">
+
+<!-- 默认显示 -->
+<div class="accordion-group">
+ <!--  <div class="accordion-heading btn btn-info">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+      <i class="icon-group"></i> 系统用户管理 <i class="glyphicon glyphicon-chevron-down"></i>
+    </a>
+  </div> -->
+    <div id="collapseZoom" class="accordion-body collapse in">
+    <div class="accordion-inner" style="text-align:center">
+      <a href="{:U('Index/index')}"><i class="glyphicon glyphicon-home"></i> 首页</a>
+    </div>
+  </div>
+</div><!-- end 默认显示 -->
+
+<!-- 权限管理菜单 -->
+<if condition="authCheck('Admin/Auth/classifyList,Admin/Auth/classifyAdd,Admin/Auth/classifyEdit,Admin/Auth/classifyDel,Admin/Auth/ruleUser,Admin/Auth/ruleAllot,Admin/Auth/ruleList,Admin/Auth/ruleAdd,Admin/Auth/ruleEdit,Admin/Auth/ruleDel,Admin/Auth/accessList,Admin/Auth/accessAdd,Admin/Auth/accessEdit,Admin/Auth/accessDel',session('ADMIN_UID'))">
+  <div class="accordion-group">
+    <div class="accordion-heading btn btn-info">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+        <i class="glyphicon glyphicon-lock"></i> 权限管理 <i class="glyphicon glyphicon-chevron-down"></i>
+      </a>
+    </div>
+
+    <if condition="$Think.get.tag eq auth">
+      <div id="collapseOne" class="accordion-body collapse in">
+    <else />
+      <div id="collapseOne" class="accordion-body collapse">
+    </if>
+      <if condition="authCheck('Admin/Auth/classifyList,Admin/Auth/classifyAdd,Admin/Auth/classifyEdit,Admin/Auth/classifyDel',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Auth/classifyList',array('tag'=>'auth'))}"><i class="glyphicon glyphicon-th-large"></i> 权限类别管理</a>
+      </div> 
+      </if>
+      <if condition="authCheck('Admin/Auth/accessList,Admin/Auth/accessAdd,Admin/Auth/accessEdit,Admin/Auth/accessDel',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Auth/accessList',array('tag'=>'auth'))}"><i class="glyphicon glyphicon-tasks"></i> 权限列表</a>
+      </div>
+      </if>
+   <!--    <if condition="authCheck('Admin/Auth/accessAdd',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Auth/accessAdd',array('tag'=>'auth'))}"><i class="glyphicon glyphicon-user"></i> 新增权限</a>
+      </div>
+      </if> -->
+      <if condition="authCheck('Admin/Auth/ruleUser,Admin/Auth/ruleAllot,Admin/Auth/ruleList,Admin/Auth/ruleAdd,Admin/Auth/ruleEdit,Admin/Auth/ruleDel',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Auth/ruleList',array('tag'=>'auth'))}"><i class="glyphicon glyphicon-user"></i> 角色列表</a>
+      </div>
+      </if>
+  <!--     <if condition="authCheck('Admin/Auth/ruleAdd',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Auth/ruleAdd',array('tag'=>'auth'))}"><i class="glyphicon glyphicon-user"></i> 创建角色</a>
+      </div>
+      </if> -->
+    </div>
+  </div><!-- end accordion-group -->
+</if><!-- end 权限管理菜单 -->
+
+<!-- 系统用户管理菜单 -->
+<if condition="authCheck('Admin/Admin/adminList,Admin/Admin/adminAdd,Admin/Admin/adminEdit,Admin/Admin/adminDel',session('ADMIN_UID'))">
+  <div class="accordion-group">
+    <div class="accordion-heading btn btn-info">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        <i class="icon-group"></i> 系统用户管理 <i class="glyphicon glyphicon-chevron-down"></i>
+      </a>
+    </div>
+    <if condition="$Think.get.tag eq admin">
+      <div id="collapseTwo" class="accordion-body collapse in">
+    <else />
+      <div id="collapseTwo" class="accordion-body collapse">
+    </if> 
+    <if condition="authCheck('Admin/Admin/adminList',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Admin/adminList',array('tag'=>'admin'))}"><i class="icon-group"></i> 系统用户列表</a>
+      </div>
+      </if>
+      <if condition="authCheck('Admin/Admin/adminAdd',session('ADMIN_UID'))">
+      <div class="accordion-inner">
+        <a href="{:U('Admin/adminAdd',array('tag'=>'admin'))}"><i class="icon-user"></i> 创建新用户</a>
+      </div>
+      </if>
+    </div>
+  </div><!-- end accordion-group -->
+</if><!-- end 系统用户管理菜单 -->
+
+</div><!-- end accordion -->

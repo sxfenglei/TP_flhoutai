@@ -1,0 +1,10 @@
+/* upload */
+.headImg-show{
+	max-width: 200px;
+}
+.headImg-change{
+	display: none;
+}
+.headImg-del{
+	display: none;
+}

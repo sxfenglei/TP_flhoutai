@@ -1,0 +1,131 @@
+<extend name="Public:base" />
+<block name="topnav">
+	<include file="Public:topnav" />
+</block>
+<block name="sidebar">
+	<include file="Public:menu" />
+</block>
+<block name="content">
+<div class="rightBox"> 
+	<ol class="breadcrumb">
+		<li><i class="glyphicon glyphicon-home"></i> <a href="#">主页面</a></li>
+		<li><a href="#">系统用户管理</a></li>
+		<li class="active">修改系统用户</li>
+	</ol>
+
+	<div class="panel panel-default">
+	  <div class="panel-heading"> <i class="glyphicon glyphicon-pencil"></i> 修改系统用户 </div>
+	  <div class="panel-body">
+
+		<form class="form-horizontal" action="{:U('Admin/adminUpdate')}" method="post"> 
+
+		<if condition="$res.id neq 1">
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">分配角色 </label>
+			<div class="col-sm-6">
+			  <select name="aule" id="aule"  class="form-control">
+			  	<option value="{$res.id|getAuleGroup=###,id}">{$res.id|getAuleGroup}</option>
+			  	<volist name="auleList" id="vo">
+			  		<option value="{$vo.id}">{$vo.title}</option>
+			  	</volist>
+			  </select>
+			</div>
+			<div class="col-sm-4 form-col-right"> 
+				*
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="name" class="col-sm-2 control-label">登录名 </label>
+			<div class="col-sm-6">
+			  <input type="text" class="form-control" id="name" name="name" placeholder="登录名" value="{$res.login_name}">
+			</div>
+			<div class="col-sm-4 form-col-right"> 
+				*
+			</div>
+		</div> 
+		</if>
+
+		<div class="form-group">
+			<label for="pwd" class="col-sm-2 control-label">密码 </label>
+			<div class="col-sm-6">
+			  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="" value="">
+			</div>
+			<div class="col-sm-4 form-col-right">*</div>
+		</div> 
+
+		<div class="form-group">
+			<label for="nickname" class="col-sm-2 control-label">昵称 </label>
+			<div class="col-sm-6">
+			  <input type="text" class="form-control" id="nickname" name="nickname" placeholder="昵称" value="{$res.nickname}">
+			</div>
+			<div class="col-sm-4 form-col-right"></div>
+		</div> 
+
+		<div class="form-group">
+			<label for="tel" class="col-sm-2 control-label">电话 </label>
+			<div class="col-sm-6">
+			  <input type="tel" class="form-control" id="tel" name="tel" placeholder="13400000000" value="{$res.tel}">
+			</div>
+			<div class="col-sm-4 form-col-right"> </div>
+		</div> 
+
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">邮箱 </label>
+			<div class="col-sm-6">
+			  <input type="email" class="form-control" id="email" name="email" placeholder="442165035@qq.com" value="{$res.email}">
+			</div>
+			<div class="col-sm-4 form-col-right"> </div>
+		</div> 
+
+		<div class="form-group">
+			<label for="headUrl" class="col-sm-2 control-label">头像 </label>
+			<div class="col-sm-6">
+				<!-- <img src="/flhoutai" style="max-width:200px;"> -->
+				<div class="flupload"></div>
+			</div>
+			<div class="col-sm-4 form-col-right"></div>
+		</div> 
+
+		<if condition="$res.id neq 1">
+		<div class="form-group">
+			<label for="status" class="col-sm-2 control-label">状态 </label>
+			<div class="col-sm-6"> 
+				<if condition="$res.status eq 1">
+				  	<input type="radio" name="status" value="1" checked>启用&nbsp;&nbsp;
+				  	<input type="radio" name="status" value="0">禁用&nbsp;&nbsp;   
+			  	<else />
+  					<input type="radio" name="status" value="1">启用&nbsp;&nbsp;
+				  	<input type="radio" name="status" value="0" checked>禁用&nbsp;&nbsp; 
+			  	</if>
+			</div>
+			<div class="col-sm-4 form-col-right"> </div>
+		</div> 
+		</if>
+		
+		<input type="hidden" id="id" name="id" value="{$res.id}"/>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			  <button type="submit" class="btn btn-default">修改</button>
+			</div>
+		</div>
+		 
+		</form> 
+		 
+	  </div><!-- panel-body -->
+	</div><!-- end panel -->
+	
+</div><!-- end roghtBox -->
+</block>
+<block name="subscript">
+<script src="__PUBLIC__/js/jquery.flupload.js"></script>
+<script>
+$.flUpload.init({
+	'element':'.flupload',
+	'addUrl':"{:U('Base/uploadImage')}",
+	'delUrl':"{:U('Base/delUploadImage')}",
+	'dataPr':"/flhoutai",
+	'data':"{$res.img_url}",
+}); 
+</script>
+</block>

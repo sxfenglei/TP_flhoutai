@@ -1,0 +1,86 @@
+<extend name="Public:base" />
+<block name="topnav">
+	<include file="Public:topnav" />
+</block>
+<block name="sidebar">
+	<include file="Public:menu" />
+</block>
+<block name="content">
+<div class="rightBox" style="padding-top:2rem;"> 
+	<div class="alert alert-warning alert-dismissible" role="alert" style="margin:auto 1rem;">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>通知:</strong> 登录系统的事件通知
+	</div>
+ 
+	<div class="panel panel-default">
+	  <div class="panel-heading"><i class="icon-tasks"></i> 待处理事情</div>
+	  <div class="panel-body">
+	  	<a href="#" class="btn btn-info"><i class="icon-info-sign"></i> 待审核用户12人</a>&nbsp;&nbsp;
+	  	<a href="#" class="btn btn-info"><i class="icon-download-alt"></i> 待导出数据5条</a>&nbsp;&nbsp;
+	  </div>
+	</div>
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title"><i class="icon-bar-chart"></i> 数据统计</h3>
+	  </div>
+	  <div class="panel-body">
+	  	<h4>每周用户浮动图</h4>
+	  	<p><span style="padding:2px 4px;border:1px solid rgba(220,220,220,1);background-color:rgba(220,220,220,0.5)">减少量</span>&nbsp;&nbsp;<span style="padding:2px 4px;border:1px solid rgba(151,187,205,1);background-color:rgba(151,187,205,0.5)">增加量</span></p>
+	    <canvas id="myChart" width="980" height="300"></canvas>
+	  </div>
+	</div>
+</div>
+</block>
+<block name="subscript">
+<script>
+$(function(){
+	//图表
+	// var ctx = document.getElementById("myChart").getContext("2d");
+	// var myNewChart = new Chart(ctx).PolarArea(data);
+	var ctx = $("#myChart").get(0).getContext("2d");
+	var myNewChart = new Chart(ctx);
+
+	var data = {
+		labels : ["周一","周二","周三","周四","周五","周六","周日"],
+		datasets : [
+			{
+				fillColor : "rgba(220,220,220,0.5)",
+				strokeColor : "rgba(220,220,220,1)",
+				pointColor : "rgba(220,220,220,1)",
+				pointStrokeColor : "#fff",
+				data : [65,59,90,81,56,55,40]
+			},
+			{
+				fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,1)",
+				pointStrokeColor : "#fff",
+				data : [28,48,40,19,96,27,100]
+			}
+		]
+	}
+	options = {
+		scaleOverlay:true,
+		scaleShowLabels : true,
+	}
+	myNewChart.Line(data,options);//线
+	// var data = {
+	// 	labels : ["一月","二月","三月","四月","五月","六月","七月"],
+	// 	datasets : [
+	// 		{
+	// 			fillColor : "rgba(220,220,220,0.5)",
+	// 			strokeColor : "rgba(220,220,220,1)",
+	// 			data : [65,59,90,81,56,55,40]
+	// 		},
+	// 		{
+	// 			fillColor : "rgba(151,187,205,0.5)",
+	// 			strokeColor : "rgba(151,187,205,1)",
+	// 			data : [28,48,40,19,96,27,100]
+	// 		}
+	// 	]
+	// }
+	// myNewChart.Bar(data);//柱 
+});
+</script>
+</block>

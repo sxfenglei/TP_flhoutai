@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+	  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="renderer" content="webkit">  
+	  	<meta content="sxfenglei" name="author" />
+		<block name="keywords"><meta name="keywords" content="sxfenglei" /></block>
+		<block name="description"><meta name="description" content="sxfenglei" /></block>
+  		<link rel="shortcut icon" href="__PUBLIC__/img/logo16X16.ico" />	
+		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="__PLUGIN__/bootstrap3/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="__PUBLIC__/css/default.css" />
+		<link rel="stylesheet" href="__PUBLIC__/css/flupload.css" />
+		<block name="subcss"></block>
+		<block name="title"><title>后台管理系统</title></block>
+	</head>
+<body>
+<!--  顶端菜单 --> 
+<block name="topnav"></block> 
+
+<!-- 正文 -->
+<div class="container-fluid">
+	<div class="row">
+		<!-- 菜单侧栏 -->
+		<div class="col-sm-2 menu">	
+			<block name="sidebar"></block>		
+		</div>	
+
+		<!-- 内容区 -->
+		<div class="col-sm-10 content">
+			<block name="content"></block>	
+		</div>
+	</div>
+
+	<!-- 末尾 --> 
+	<div class="row"> 
+		<block name="footer">
+			<p class="footer">@技术支持 <a href="http://www.sxfenglei.com">sxfenglei</a></p>
+		</block>
+	</div>
+</div>
+ 
+<!-- 脚本 -->
+<script src="__PUBLIC__/js/jquery1.min.js"></script>
+<script src="__PLUGIN__/bootstrap3/js/bootstrap.min.js"></script>
+<script src="__PLUGIN__/bootstrap3/js/Chart.min.js"></script>
+<block name="subscript">
+<script>
+$(function(){
+	//编辑
+	$('.btnEdit').on('click',function(){
+		window.location.href = $(this).data('url');
+	});
+	//删除
+	$('.btnDel').on('click',function(){
+		if(!confirm('你确定要删除吗?')){
+			return false;
+		}
+		var url = $(this).data('url');
+		var postData = {
+			'id':$(this).data('id')
+		}
+		$.post(url,postData,function(data){
+			if(data.code == 2000){
+				window.location.reload();
+			}else{
+				alert(data.msg);
+			}
+		});
+	});
+});
+</script>
+</block>
+</body>
+</html>
